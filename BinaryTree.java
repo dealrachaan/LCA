@@ -44,11 +44,9 @@ public class BinaryTree {
   }
  
 
-  /**
-   Recursive insert -- given a node pointer, recur down and
-   insert the given data into the tree. Returns the new
-   node pointer (the standard way to communicate
-   a changed pointer back to the caller).
+  /*
+   Recursive insert -- given a node pointer, recurs through existing tree data and inserts 
+   new data into tree. Returns the new node pointer.
   */
   private Node insert(Node node, int data) {
     if (node==null) {
@@ -63,5 +61,5 @@ public class BinaryTree {
       }
     }
 
-    return(node); // in any case, return the new pointer to the caller
+    return(node); // return the new pointer to the caller
   }
