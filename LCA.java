@@ -1,9 +1,9 @@
 //LCA
-//for node X, Y, create string {H, a1, b1, c1...X}
-//where X = given node, b = parent node of a, etc, and H = head node
-//when string for X {a1, b1, c1...} and string for Y {a2, b2, c2...} converge
-// ie when {f1...H} = {h2...H}
-//then f1 = h2 = LCA
+//for node X, Y
+//check if nodes in tree, if not add them to tree
+//if root = either node, return root
+//otherwise recur down left + right
+//returns highest node with paths that lead to node X and node Y
 
 public Node LCA(Node root, Node node1, Node node2){
 	
