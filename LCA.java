@@ -6,7 +6,17 @@
 //then f1 = h2 = LCA
 
 public Node LCA(Node root, Node node1, Node node2){
+	
+	if(lookup(node1.data)==false){ //if node1 or node2 data not in tree, add to tree
+		System.out.print(node1.data+" not found in tree. \n Adding to tree...");
+		insert(node1.data);
+	}
 
+	if(lookup(node2.data)==false){
+		System.out.print(node2.data+" not found in tree. \n Adding to tree...");
+		insert(node2.data);
+	}
+	
 	if (root==null){
 		return null;
 	}
