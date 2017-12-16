@@ -8,13 +8,13 @@
 public Node LCA(Node root, int data1, int data2){
 	
 	if(lookup(data1)==false){ //if node1 or node2 data not in tree, add to tree
-		System.out.print(data1+" not found in tree. \n Adding to tree...");
-		insert(data1);
+		System.out.print(data1+" not found in tree.");
+		return null;
 	}
 
 	if(lookup(data2)==false){
-		System.out.print(data2+" not found in tree. \n Adding to tree...");
-		insert(data2);
+		System.out.print(data2+" not found in tree.");
+		return null;
 	}
 	
 	if (root==null){
