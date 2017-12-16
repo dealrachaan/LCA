@@ -5,32 +5,28 @@
 //otherwise recur down left + right
 //returns highest node with paths that lead to node X and node Y
 
-public Node LCA(Node root, Node node1, Node node2){
+public Node LCA(Node root, int data1, int data2){
 	
-	if(lookup(node1.data)==false){ //if node1 or node2 data not in tree, add to tree
-		System.out.print(node1.data+" not found in tree. \n Adding to tree...");
-		insert(node1.data);
+	if(lookup(data1)==false){ //if node1 or node2 data not in tree, add to tree
+		System.out.print(data1+" not found in tree. \n Adding to tree...");
+		insert(data1);
 	}
 
-	if(lookup(node2.data)==false){
-		System.out.print(node2.data+" not found in tree. \n Adding to tree...");
-		insert(node2.data);
+	if(lookup(data2)==false){
+		System.out.print(data2+" not found in tree. \n Adding to tree...");
+		insert(data2);
 	}
 	
 	if (root==null){
 		return null;
 	}
 	
-	if(root == node1){
-		return node1;
+	if(root.data == data1 || root.data == data2){
+		return root;
 	}
 	
-	if (root == node2){
-		return node2;
-	}
-	
-	Node left = LCA(root.left, node1, node2);
-	Node right = LCA(root.right, node1, node2);
+	Node left = LCA(root.left, data1, data2);
+	Node right = LCA(root.right, data1, data);
 	
 	if(left == null && right == null){
 		return null;
