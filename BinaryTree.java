@@ -9,9 +9,9 @@ public class BinaryTree {
     int data;
 
     Node(int newData) { //given data for node + no links
-      left = null;
-      right = null;
-      data = newData;
+      this.left = null;
+      this.right = null;
+      this.data = newData;
     }
   }
 
