@@ -54,7 +54,8 @@ public void testOneElementTree{ //look for LCA when one element is in tree
 		wrongElementsTree.insert(1);
 		wrongElementsTree.insert(2);
 	}
-	@Test(
-	LCA(wrongElementsTree, a, b);
+	@Test(expected = IllegalArgumentException.class){
+		LCA(wrongElementsTree, a, b);
+	}
 }
 
