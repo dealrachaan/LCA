@@ -8,13 +8,13 @@ public class BinaryTree {
     Node left;
     Node right;
     int data;
-    ArrayList<Integer> Parents; //nodes which link to this node
+    List<Integer> Parents; //nodes which link to this node
 
     Node(int newData) { //given data for node + no links
       this.left = null;
       this.right = null;
       this.data = newData;
-      ArrayList<Integer> Parents = new ArrayList<Integer>();
+      this.Parents = new ArrayList<Integer>();
     }
   }
 
