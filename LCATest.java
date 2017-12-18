@@ -85,5 +85,22 @@ public void testOneElementTree{ //look for LCA when one element is in tree
 		  LCA(addedEdgeTree, 2, 6);
 	  }
   }
+	  
+	public void testBranchedAddedEdge{ //tree has added branch and answer is not root
+		@BeforeMethod
+	  	public void BeforeMethod(){
+			BinarySearchTree branchedAddedEdgeTree = new BinarySearchTree();
+			branchedAddedEdgeTree.insert(6);
+			branchedAddedEdgeTree.insert(4);
+			branchedAddedEdgeTree.insert(2);
+			branchedAddedEdgeTree.insert(5);
+			branchedAddedEdgeTree.insert(1);
+			branchedAddedEdgeTree.insert(8);
+			branchedAddedEdgeTree.insert(7);
+			branchedAddedEdgeTree.insert(9);
+	}
+	@Test(expected = branchedAddedEdgeTree.getNode(4)){
+		LCA(branchedAddedEdgeTree, 2, 5);
+	}
 }
 
