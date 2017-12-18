@@ -65,7 +65,8 @@ public class BinaryTree {
     if(lookup(ancestor)==false || lookup(descendant==false){
       return null;
     }
-    
+    Node ancestorNode = getNode(ancestor);
+    return lookup(ancestorNode, data);
   }
 
   /*
