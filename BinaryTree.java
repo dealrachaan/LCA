@@ -8,13 +8,13 @@ public class BinaryTree {
     Node left;
     Node right;
     int data;
-    ArrayList<Integer> Children; //nodes which are linked directly from this node
+    ArrayList<Integer> Parents; //nodes which link to this node
 
     Node(int newData) { //given data for node + no links
       this.left = null;
       this.right = null;
       this.data = newData;
-      ArrayList<Integer> Children = new ArrayList<Integer>();
+      ArrayList<Integer> Parents = new ArrayList<Integer>();
     }
   }
 
@@ -30,8 +30,9 @@ public class BinaryTree {
     if (node==null) { //return false if tree is empty
       return(false);
     }
-    Integer dataValue = Integer.valueOf(data); 
-    if (node.Children.contains(dataValue)){ //if edge exists return true
+    Node childNode = getNode(data);
+    Integer parentNodeValue = Integer.valueOf(node.data); 
+    if (childNode.Parents.contains(parentNodeValue)){ //if edge exists return true
       return true;
     }
     if (data==node.data) { //return true if this node's data = data
@@ -78,7 +79,7 @@ public class BinaryTree {
     if(lookup(ancestor)==false || lookup(descendant==false){
       return;
     }
-    getNode(ancestor).Children.add(Integer.valueOf(descendant));
+    getNode(descendant).Parents.add(Integer.valueOf(ancestor));
   }
        
   /*
@@ -92,9 +93,11 @@ public class BinaryTree {
     else {
       if (data <= node.data) {
         node.left = insert(node.left, data);
+        node.left.Parents.add(Integer.valueOf(node));
       }
       else {
         node.right = insert(node.right, data);
+        node.right.Parents.add(Integer.valueOf(node));
       }
     }
 
