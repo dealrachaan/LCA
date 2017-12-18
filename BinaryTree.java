@@ -44,7 +44,36 @@ public class BinaryTree {
     else { //search to right of tree if searched for data is bigger than this nodes data
       return(lookup(node.right, data));
     }
-  }					
+  }
+  
+  public List<Integer> Path(int data){
+    List<Integer> Path = new ArrayList();
+    return(Path(root, data, Path);
+  }
+  
+  
+  private List<Integer> Path(Node node, int data, List<Integer> ThisPath) { //recursive search for path from node to root
+    if (node==null) { //return false if tree is empty
+      return(false);
+    }
+    Node childNode = getNode(data);
+    Integer parentNodeValue = Integer.valueOf(node.data); 
+    if (childNode.Parents.contains(parentNodeValue)){ //if edge exists return true
+      ThisPath.add(Integer.valueOf(data)); //add node and root to path list
+      ThisPath.add(parentNodeValue);
+      return (ThisPath);
+    }
+    if (data==node.data) { //add node/root to list if root = node
+      ThisPath.add(Integer.valueOf(data));
+      return(Path);
+    }
+    else if (data<node.data) { //search to left of tree if searched for data is smaller than this nodes data
+      return(Path(node.left, data));
+    }
+    else { //search to right of tree if searched for data is bigger than this nodes data
+      return(Path(node.right, data));
+    }
+  }	
  
   public void insert(int data) { //inserts value in tree using recursive function
     root = insert(root, data);
