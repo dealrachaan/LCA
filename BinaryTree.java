@@ -108,6 +108,13 @@ public class BinaryTree {
     if(lookup(ancestor)==false || lookup(descendant==false){
       return;
     }
+    if(isAncestorNode(descendant, ancestor){
+      System.err.println("As node "+descendant+" is an ancestor of node "+ascendant", this edge cannot be added);
+      return;
+    }
+    if(getNode(descendant).parents.contains(Integer.valueOf(ancestor){
+      return; //edge already exists
+    }
     getNode(descendant).parents.add(Integer.valueOf(ancestor));
   }
        
