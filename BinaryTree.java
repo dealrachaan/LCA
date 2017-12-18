@@ -8,13 +8,13 @@ public class BinaryTree {
     Node left;
     Node right;
     int data;
-    List<Integer> Parents; //nodes which link to this node
+    List<Integer> parents; //nodes which link to this node
 
     Node(int newData) { //given data for node + no links
       this.left = null;
       this.right = null;
       this.data = newData;
-      this.Parents = new ArrayList<Integer>();
+      this.parents = new ArrayList<Integer>();
     }
   }
 
@@ -32,7 +32,7 @@ public class BinaryTree {
     }
     Node childNode = getNode(data);
     Integer parentNodeValue = Integer.valueOf(node.data); 
-    if (childNode.Parents.contains(parentNodeValue)){ //if edge exists return true
+    if (childNode.parents.contains(parentNodeValue)){ //if edge exists return true
       return true;
     }
     if (data==node.data) { //return true if this node's data = data
@@ -46,32 +46,32 @@ public class BinaryTree {
     }
   }
   
-  public List<Integer> Path(int data){
-    List<Integer> Path = new ArrayList();
+  public List<Integer> path(int data){
+    List<Integer> path = new ArrayList();
     return(Path(root, data, Path);
   }
   
   
-  private List<Integer> Path(Node node, int data, List<Integer> ThisPath) { //recursive search for path from node to root
+  private List<Integer> path(Node node, int data, List<Integer> thisPath) { //recursive search for path from node to root
     if (node==null) { //return false if tree is empty
       return(false);
     }
     Node childNode = getNode(data);
     Integer parentNodeValue = Integer.valueOf(node.data); 
     if (childNode.Parents.contains(parentNodeValue)){ //if edge exists return true
-      ThisPath.add(Integer.valueOf(data)); //add node and root to path list
-      ThisPath.add(parentNodeValue);
-      return (ThisPath);
+      thisPath.add(Integer.valueOf(data)); //add node and root to path list
+      thisPath.add(parentNodeValue);
+      return (thisPath);
     }
     if (data==node.data) { //add node/root to list if root = node
-      ThisPath.add(Integer.valueOf(data));
-      return(Path);
+      thisPath.add(Integer.valueOf(data));
+      return(thisPath);
     }
     else if (data<node.data) { //search to left of tree if searched for data is smaller than this nodes data
-      return(Path(node.left, data));
+      return(path(node.left, data));
     }
     else { //search to right of tree if searched for data is bigger than this nodes data
-      return(Path(node.right, data));
+      return(path(node.right, data));
     }
   }	
  
@@ -108,7 +108,7 @@ public class BinaryTree {
     if(lookup(ancestor)==false || lookup(descendant==false){
       return;
     }
-    getNode(descendant).Parents.add(Integer.valueOf(ancestor));
+    getNode(descendant).parents.add(Integer.valueOf(ancestor));
   }
        
   /*
@@ -122,11 +122,11 @@ public class BinaryTree {
     else {
       if (data <= node.data) {
         node.left = insert(node.left, data);
-        node.left.Parents.add(Integer.valueOf(node));
+        node.left.parents.add(Integer.valueOf(node));
       }
       else {
         node.right = insert(node.right, data);
-        node.right.Parents.add(Integer.valueOf(node));
+        node.right.parents.add(Integer.valueOf(node));
       }
     }
 
