@@ -1,4 +1,4 @@
-
+import java.util.ArrayList;
 // BinaryTree.java
 public class BinaryTree {
   
@@ -8,11 +8,13 @@ public class BinaryTree {
     Node left;
     Node right;
     int data;
+    ArrayList<Node>;
 
     Node(int newData) { //given data for node + no links
       this.left = null;
       this.right = null;
       this.data = newData;
+      ArrayList<Node> Descendants = new ArrayList<Node>();
     }
   }
 
@@ -69,6 +71,10 @@ public class BinaryTree {
     return lookup(ancestorNode, data);
   }
 
+  public void addEdge(int ancestor, int descendant){
+    
+  }
+       
   /*
    Recursive insert -- given a node pointer, recurs through existing tree data and inserts 
    new data into tree. Returns the new node pointer.
