@@ -29,8 +29,8 @@ public Node LCA(Node root, int data1, int data2){
 	//find LCA
 	//bottom up method
 	
-	List<Integer> data1List = Path(data1);
-	List <Integer> data2List = Path(data2);
+	List<Integer> data1List = path(data1);
+	List <Integer> data2List = path(data2);
 	List<Integer> intersection = data1List.retainAll(data2List); //whatever node comes last in intersection of these lists will be LCA
 	int lcaData = intersection.get(intersection.size()-1).intValue(); //convert Integer to int
 	return getNode(lcaData); //return node with this data (which could still be root)
