@@ -1,6 +1,6 @@
 //LCA
 //for node X, Y
-//check if nodes in tree, if not add them to tree
+//check if nodes in tree
 //if root = either node, return root
 //otherwise recur down left + right
 //returns highest node with paths that lead to node X and node Y
