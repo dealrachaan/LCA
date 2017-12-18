@@ -8,13 +8,13 @@ public class BinaryTree {
     Node left;
     Node right;
     int data;
-    ArrayList<Node>;
+    ArrayList<Integer> Children;
 
     Node(int newData) { //given data for node + no links
       this.left = null;
       this.right = null;
       this.data = newData;
-      ArrayList<Node> Descendants = new ArrayList<Node>();
+      ArrayList<Integer> Children = new ArrayList<Integer>();
     }
   }
 
@@ -30,7 +30,7 @@ public class BinaryTree {
     if (node==null) { //return false if tree is empty
       return(false);
     }
-
+    if
     if (data==node.data) { //return true if this node's data = data
       return(true);
     }
@@ -72,7 +72,10 @@ public class BinaryTree {
   }
 
   public void addEdge(int ancestor, int descendant){
-    
+    if(lookup(ancestor)==false || lookup(descendant==false){
+      return;
+    }
+    getNode(ancestor).Children.add(Integer.valueOf(descendant));
   }
        
   /*
