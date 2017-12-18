@@ -1,3 +1,4 @@
+
 // BinaryTree.java
 public class BinaryTree {
   
@@ -42,7 +43,30 @@ public class BinaryTree {
   public void insert(int data) { //inserts value in tree using recursive function
     root = insert(root, data);
   }
+  
+  public Node getNode(int data){
+    if(lookup(data)==false) return null;
+    return getNode(root, data);
+  }
+  
+  private Node getNode(Node node, int data){ //same as lookup but returns node rather than true/false value
+    if(data==node.data){
+      return node;
+    }
+    else if (data<node.data) { 
+      return(getNode(node.left, data));
+    }
+    else { 
+      return(getNode(node.right, data));
+    }
+  }
  
+  public boolean isAncestorNode(int ancestor, int descendant){
+    if(lookup(ancestor)==false || lookup(descendant==false){
+      return null;
+    }
+    
+  }
 
   /*
    Recursive insert -- given a node pointer, recurs through existing tree data and inserts 
