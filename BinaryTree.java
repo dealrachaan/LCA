@@ -8,7 +8,7 @@ public class BinaryTree {
     Node left;
     Node right;
     int data;
-    ArrayList<Integer> Children;
+    ArrayList<Integer> Children; //nodes which are linked directly from this node
 
     Node(int newData) { //given data for node + no links
       this.left = null;
@@ -30,7 +30,10 @@ public class BinaryTree {
     if (node==null) { //return false if tree is empty
       return(false);
     }
-    if
+    Integer dataValue = Integer.valueOf(data); 
+    if (node.Children.contains(dataValue)){ //if edge exists return true
+      return true;
+    }
     if (data==node.data) { //return true if this node's data = data
       return(true);
     }
@@ -63,15 +66,15 @@ public class BinaryTree {
     }
   }
  
-  public boolean isAncestorNode(int ancestor, int descendant){
-    if(lookup(ancestor)==false || lookup(descendant==false){
+  public boolean isAncestorNode(int ancestor, int descendant){ //determines whether link exists between two nodes
+    if(lookup(ancestor)==false || lookup(descendant)==false){
       return null;
     }
     Node ancestorNode = getNode(ancestor);
     return lookup(ancestorNode, data);
   }
 
-  public void addEdge(int ancestor, int descendant){
+  public void addEdge(int ancestor, int descendant){ //adds link between two nodes
     if(lookup(ancestor)==false || lookup(descendant==false){
       return;
     }
