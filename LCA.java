@@ -28,25 +28,11 @@ public Node LCA(Node root, int data1, int data2){
 	//currently root.Children will contain both data1 and data2
 	//find LCA
 	//bottom up method
-	/*
+	
 	List<Integer> data1List = Path(data1);
 	List <Integer> data2List = Path(data2);
-	//whatever node comes last in intersection of these lists will be LCA
-	List<Integer> intersection = data1List.retainAll(data2List);
-	*/
-	
-	
-	/*Node left = LCA(root.left, data1, data2);
-	Node right = LCA(root.right, data1, data);
-	
-	if(left == null && right == null){
-		return null;
-	}else if( left != null && right != null){
-		reutrn root;
-	}else if(left == null){ //process of elimination: right is not null
-		return right;
-	}else{ //when right is null and left is not null
-		return left;*/
+	List<Integer> intersection = data1List.retainAll(data2List); //whatever node comes last in intersection of these lists will be LCA
+	int lcaData = intersection.get(intersection.size()-1).intValue(); //convert Integer to int
+	return getNode(lcaData); //return node with this data (which could still be root)
 	}
-
 }
