@@ -15,11 +15,6 @@ public class LCATest {
 	}
   }
 	
-  @Test(expected = IllegalArgumentException.class)
-  public void testExceptionIsThrown() {        
-    tester.divide(1000, 0);
-  }
-	
 
 public void testOneElementTree{ //look for LCA when one element is in tree
 	@BeforeMethod
@@ -41,7 +36,7 @@ public void testOneElementTree{ //look for LCA when one element is in tree
 		bothElementsTree.insert(3);
 		Node node1 = new Node (2);
 	}
-	@Test{
+	@Test(expected = bothElementsTree.root){
   		Node node2 = LCA(bothElementsTree, 1, 2);
 		assertEquals(node1.data, node2.data);
 	}
@@ -57,5 +52,38 @@ public void testOneElementTree{ //look for LCA when one element is in tree
 	@Test(expected = IllegalArgumentException.class){
 		LCA(wrongElementsTree, a, b);
 	}
+	  
+  public void testBranchedTree{ //tree where LCA is not root
+	  @BeforeMethod
+	public void BeforeMethod(){
+		BinarySearchTree branchedTree = new BinarySearchTree(); 
+		  branchedTree.insert(4);
+		  branchedTree.insert(2);
+		  branchedTree.insert(1);
+		  branchedTree.insert(3);
+		  branchedTree.insert(5);
+	}
+	@Test(expected = branchedTree.getNode(2)){
+		LCA(branchedTree, 1, 3);
+	}
+
+  }
+	  
+  public void testAddedEdge{ //test tree with edge added to it
+	  @BeforeMethod
+	  public void BeforeMethod(){
+		BinarySearchTree addedEdgeTree = new BinarySearchTree(); 
+		addedEdgeTree.insert(3);
+		addedEdgeTree.insert(1);
+		addedEdgeTree.insert(2);
+		addedEdgeTree.insert(5);
+		addedEdgeTree.insert(4);
+		addedEdgeTree.insert(6);
+		addedEdgeTree.addEdge(2,6);
+	  }
+	  @Test(expected = addedEdgeTree.root){
+		  LCA(addedEdgeTree, 2, 6);
+	  }
+  }
 }
 
